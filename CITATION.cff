@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this software when using NeTab."
+title: "NeTab: A Framework for Record-Structured Tabular Synthesis"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Goldfryd
+    given-names: Ori
+license: MIT
+date-released: '2026-10-30'
+# The manuscript title and DOI will be added when available.
+# doi: DOI_PLACEHOLDER

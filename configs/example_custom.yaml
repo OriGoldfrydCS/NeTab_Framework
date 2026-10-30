@@ -1,0 +1,14 @@
+schema:
+  positions: 5
+  fields:
+    - {name: amount, dtype: int, minimum: 1}
+    - {name: status, dtype: int, choices: [-1, 1]}
+  null_record: [0, 0]
+  activity_field: status
+data:
+  class_column: class
+  columns: {amount: 'amount_{j}', status: 'status_{j}'}
+quantizer:
+  default: {bins: 200, ceiling: 65536}
+generation: {k: 8, m: 4, temperature: 1.0, rule: relative}
+training: {epochs: 15, batch_size: 4, learning_rate: 0.00003, num_threads: null}

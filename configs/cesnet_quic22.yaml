@@ -1,0 +1,27 @@
+schema:
+  positions: 30
+  fields:
+    - {name: timing, dtype: float, minimum: 0}
+    - {name: direction, dtype: int, choices: [-1, 1]}
+    - {name: size, dtype: int, minimum: 0}
+  null_record: [0, 0, 0]
+  activity_field: direction
+  inactive_value: 0
+data:
+  class_column: APP
+  columns: {timing: 'PPI_0_{j}', direction: 'PPI_1_{j}', size: 'PPI_2_{j}'}
+quantizer:
+  default: {bins: 200, ceiling: 65536}
+generation: {k: 8, m: 4, temperature: 1.0, rule: relative}
+scorers:
+  markov: {smoothing: 0.5, backoff: 10.0}
+  tiny: {layers: 2, d_model: 256, heads: 4, dropout: 0.1}
+  hf: {model: gpt2, normalize_per_value: false, max_length: 512}
+training:
+  epochs: 15
+  batch_size: 4
+  learning_rate: 0.00003
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  seed: 42
+  num_threads: null
